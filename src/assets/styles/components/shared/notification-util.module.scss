@@ -1,0 +1,70 @@
+.container {
+  padding: 12px 16px !important;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px 0 var(--n-box-shadow-color);
+
+  &--error {
+    background-color: var(--primary_100);
+  }
+
+  &--success {
+    background-color: var(--success_100);
+  }
+
+  &--info {
+    background-color: var(--info_100);
+  }
+
+  &--warning {
+    background-color: var(--warning_100);
+  }
+}
+
+.description {
+  width: 100%;
+  @include flexbox-style(8px, center, center);
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+
+    &--error {
+      color: var(--primary_700);
+    }
+
+    &--success {
+      color: var(--success_600);
+    }
+
+    &--info {
+      color: var(--info_600);
+    }
+
+    &--warning {
+      color: var(--warning_600);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    white-space: nowrap;
+    @include text-style(16px, 500, 20.8px, var(--success_600));
+
+    &--error {
+      color: var(--primary_700);
+    }
+
+    &--success {
+      color: var(--success_600);
+    }
+
+    &--info {
+      color: var(--info_600);
+    }
+
+    &--warning {
+      color: var(--warning_600);
+    }
+  }
+}

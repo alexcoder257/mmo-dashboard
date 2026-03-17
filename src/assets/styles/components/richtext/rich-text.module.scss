@@ -1,0 +1,85 @@
+/* Rich Text Styles for Chat Messages */
+.prose {
+  h3,
+  h4,
+  h5 {
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.875rem;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+
+  code {
+    background-color: #f3f4f6;
+    border-radius: 0.25rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.875rem;
+    padding: 0.125rem 0.25rem;
+  }
+
+  a {
+    color: #3b82f6;
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: #1d4ed8;
+  }
+
+  a[href^='/product/'] {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a[href^='/product/']:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+    background-color: #eff6ff;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  br {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+}
