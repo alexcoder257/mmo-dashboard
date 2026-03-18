@@ -136,7 +136,7 @@ const TravelPage: React.FC = () => {
             {t('travel.viewNotion')}
           </a>
         ) : (
-          <span className="text-slate-500">—</span>
+          <span className="text-slate-500">{'—'}</span>
         ),
       title: t('travel.table.notionLink'),
       width: 120,
