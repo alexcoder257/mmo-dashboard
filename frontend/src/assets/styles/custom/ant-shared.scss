@@ -1,0 +1,165 @@
+:root {
+  --ant-header-height: 56px;
+  --ant-main-padding: 20px;
+}
+
+.ant-layout {
+  background: unset !important;
+
+  &-header {
+    padding: 0 !important;
+    height: var(--ant-header-height);
+    background: unset !important;
+  }
+
+  &-content {
+    color: unset;
+  }
+}
+
+// Custom tooltip styles
+.tooltip-small {
+  .ant-tooltip-inner {
+    @apply text-xs py-1.5 px-2.5 min-h-0 rounded leading-tight;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ant-tooltip-arrow-content {
+    --antd-arrow-background-color: #1f1f1f;
+  }
+}
+
+.ant-table-wrapper .ant-table {
+  scrollbar-color: unset;
+}
+
+.ant-table-wrapper
+  .ant-table-ping-left:not(.ant-table-has-fix-left)
+  .ant-table-container::before {
+  box-shadow: inset 10px 0 8px -8px var(--n-box-shadow-color) !important;
+}
+
+.ant-table-wrapper
+  .ant-table-ping-right:not(.ant-table-has-fix-right)
+  .ant-table-container::after {
+  box-shadow: inset -10px 0 8px -8px var(--n-box-shadow-color) !important;
+}
+
+.ant-table-body::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+.ant-table-body::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: var(--n-scrollbar-color);
+}
+
+.ant-layout-content {
+  color: var(--n-text-color) !important;
+  background: var(--n-background-body-color) !important;
+}
+
+.ant-layout-sider {
+  .ant-menu-inline {
+    border-inline-end: none !important;
+  }
+}
+
+.ant-input-outlined {
+  border-width: 1px !important;
+}
+
+.ant-input-outlined:focus,
+.ant-input-outlined:focus-within {
+  box-shadow: none !important;
+  outline: 0 !important;
+  background-color: transparent !important;
+}
+
+.ant-btn {
+  font-size: inherit !important;
+}
+
+.ant-btn-color-default {
+  box-shadow: none !important;
+}
+
+.ant-layout-header {
+  height: inherit !important;
+}
+
+.ant-carousel .slick-slide {
+  height: 100% !important;
+}
+
+.ant-layout-footer {
+  padding: 0 !important;
+}
+
+.ant-breadcrumb {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 500;
+  .ant-breadcrumb-link {
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .ant-breadcrumb-separator {
+    color: var(--n-text-color);
+    margin: 0 8px;
+    font-size: 20px;
+    font-weight: 500;
+    content: '>';
+  }
+  .ant-breadcrumb > span:last-child .ant-breadcrumb-link,
+  .ant-breadcrumb > span:last-child {
+    color: var(--n-text-color);
+    font-weight: 600;
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.ant-modal-close {
+  display: none !important;
+}
+
+.ant-modal-content {
+  padding: 0 !important;
+}
+
+.ant-form-item-explain-error {
+  font-size: 10px !important;
+  color: #fd3757 !important;
+  margin-top: 1px !important;
+  margin-bottom: 0 !important;
+  line-height: 13px !important;
+  font-weight: 400 !important;
+}
+
+.ant-form-item {
+  margin-bottom: 0 !important;
+
+  &-control-input {
+    min-height: auto !important;
+  }
+
+  &-explain-error {
+    display: none !important;
+  }
+}
+
+// Sidebar menu styles
+.ant-menu-dark {
+  background: transparent !important;
+
+  .ant-menu-item {
+    border-radius: 8px;
+    margin: 2px 0;
+  }
+}

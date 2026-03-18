@@ -1,5 +1,7 @@
 # MMO Dashboard
 
+Monorepo with `frontend/` (Next.js) and `backend/` (Python FastAPI).
+
 ## Skills
 
 - `.claude/skills/nextjs-component.md` — Create Next.js components (Base* prefix, Ant Design, Tailwind, TypeScript)
@@ -8,8 +10,9 @@
 - `.claude/skills/form-schema.md` — Create React Hook Form + Yup validation schemas
 - `.claude/skills/react-query.md` — Create TanStack React Query hooks (query keys, mutations)
 - `.claude/skills/i18n-locale.md` — Add i18n translations (next-intl, en/vi/ja)
+- `.claude/skills/analyze-travel-video.md` — Analyze travel videos → Vietnamese tour guide in Notion (auto #N tagging, under Travel group)
 
-## Stack
+## Frontend Stack
 
 - **Framework:** Next.js 14 (App Router, Edge Runtime)
 - **Language:** TypeScript (strict mode)
@@ -21,35 +24,55 @@
 - **Deployment:** Cloudflare Pages (wrangler)
 - **Package manager:** pnpm 10
 
+## Backend Stack
+
+- **Framework:** Python FastAPI
+- **Deployment:** Docker
+- **Database:** PostgreSQL
+
 ## Project Structure
 
 ```
-src/
-├── @types/          # Global type declarations
-├── apis/            # API service functions (*Api suffix)
-├── app/[locale]/    # Next.js App Router pages
-│   ├── (auth)/      # Auth routes (login, register, etc.)
-│   ├── (main)/      # Main app routes
-│   └── (error)/     # Error pages (404, 403)
-├── assets/          # fonts/, icons/, images/, styles/
-├── components/
-│   └── shared/      # Reusable Base* components
-├── constants/       # UPPER_SNAKE_CASE constants
-├── contexts/        # React context providers
-├── i18n/            # Internationalization config
-├── layouts/         # Layout components
-├── libs/
-│   ├── fetch/       # Custom fetch wrapper (interceptors, camelCase/snake_case)
-│   └── tailwindcss/ # Theme extensions & custom components
-├── mocks/           # Mock data
-├── models/
-│   ├── enums/       # E* prefix enums
-│   ├── interfaces/  # I* prefix interfaces
-│   └── types/       # T* prefix types
-├── schemas/         # Yup validation schemas
-├── stores/          # Zustand stores (use*Store)
-├── utils/           # Utility functions (*Util suffix)
-└── middleware.ts    # Route guards + i18n middleware
+mmo-dashboard/
+├── frontend/                # Next.js application
+│   ├── src/
+│   │   ├── @types/          # Global type declarations
+│   │   ├── apis/            # API service functions (*Api suffix)
+│   │   ├── app/[locale]/    # Next.js App Router pages
+│   │   │   ├── (auth)/      # Auth routes (login, register, etc.)
+│   │   │   ├── (main)/      # Main app routes
+│   │   │   └── (error)/     # Error pages (404, 403)
+│   │   ├── assets/          # fonts/, icons/, images/, styles/
+│   │   ├── components/
+│   │   │   └── shared/      # Reusable Base* components
+│   │   ├── constants/       # UPPER_SNAKE_CASE constants
+│   │   ├── contexts/        # React context providers
+│   │   ├── i18n/            # Internationalization config
+│   │   ├── layouts/         # Layout components
+│   │   ├── libs/
+│   │   │   ├── fetch/       # Custom fetch wrapper (interceptors, camelCase/snake_case)
+│   │   │   └── tailwindcss/ # Theme extensions & custom components
+│   │   ├── mocks/           # Mock data
+│   │   ├── models/
+│   │   │   ├── enums/       # E* prefix enums
+│   │   │   ├── interfaces/  # I* prefix interfaces
+│   │   │   └── types/       # T* prefix types
+│   │   ├── schemas/         # Yup validation schemas
+│   │   ├── stores/          # Zustand stores (use*Store)
+│   │   ├── utils/           # Utility functions (*Util suffix)
+│   │   └── middleware.ts    # Route guards + i18n middleware
+│   ├── locales/             # i18n translation files
+│   ├── public/              # Static assets
+│   ├── package.json
+│   └── ...config files
+├── backend/                 # Python FastAPI application
+│   ├── app/
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   └── .env.example
+├── .claude/                 # Claude Code skills
+├── .gitignore
+└── CLAUDE.md
 ```
 
 ## Naming Conventions
@@ -139,12 +162,12 @@ export const BaseComponent: React.FC<IProps> = ({ ... }) => { ... };
 
 ## Path Alias
 
-- `@/*` maps to `./src/*`
+- `@/*` maps to `./src/*` (relative to `frontend/`)
 
 ## API Conventions
 
-- Request body: auto-converted camelCase → snake_case
-- Response body: auto-converted snake_case → camelCase
+- Request body: auto-converted camelCase -> snake_case
+- Response body: auto-converted snake_case -> camelCase
 - Auth: Bearer token from cookies via `COOKIE_KEYS.ACCESS_TOKEN`
 - Credentials: `'include'` for CORS
 
@@ -157,7 +180,12 @@ export const BaseComponent: React.FC<IProps> = ({ ... }) => { ... };
 
 ## Commands
 
-- `pnpm dev` — dev server
-- `pnpm build` — production build
-- `pnpm lint` — ESLint check
-- `pnpm lint:fix` — ESLint auto-fix
+### Frontend
+- `cd frontend && pnpm dev` — dev server
+- `cd frontend && pnpm build` — production build
+- `cd frontend && pnpm lint` — ESLint check
+- `cd frontend && pnpm lint:fix` — ESLint auto-fix
+
+### Backend
+- `cd backend && source venv/bin/activate && uvicorn app.main:app --reload --port 8000` — dev server
+- `cd backend && pip install -r requirements.txt` — install dependencies
